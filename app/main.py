@@ -60,3 +60,7 @@ def recommend(body: RecommendRequest):
         raise HTTPException(status_code=422, detail=result.get("message", "No candidates"))
     raise HTTPException(status_code=400, detail=result)
 
+
+@app.get("/")
+def root():
+    return {"message": "Location Recommendation API is running. Use POST /recommend to get results."}
